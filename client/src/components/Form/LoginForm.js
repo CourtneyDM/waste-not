@@ -54,11 +54,11 @@ export class LoginForm extends Component {
                 return alert( 'Please check your submission and try again.' );
             }
             else {
-                window.sessionStorage.setItem( "fullname", res.data.user.fullname );
-                window.sessionStorage.setItem( "email", res.data.user.email );
-                window.sessionStorage.setItem( "sessionID", res.data.sessionID );
-                window.sessionStorage.setItem( "userID", res.data.user._id );
-                window.sessionStorage.setItem( "isLoggedIn", true );
+                // window.sessionStorage.setItem( "fullname", res.data.user.fullname );
+                // window.sessionStorage.setItem( "email", res.data.user.email );
+                // window.sessionStorage.setItem( "sessionID", res.data.sessionID );
+                // window.sessionStorage.setItem( "userID", res.data.user._id );
+                // window.sessionStorage.setItem( "isLoggedIn", true );
                 this.setState( { isAuthenitcated: true } );
                 window.location.pathname = '/Welcome';
             }

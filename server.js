@@ -11,7 +11,8 @@ const mongoose = require( 'mongoose' );
 const PORT = process.env.PORT || 3001;
 
 // Import Routes and Configurations
-const apiRoutes = require( './routes/api/' );
+// const apiRoutes = require( './routes/api/' );
+const routes = require( './routes' );
 const userRoutes = require( './routes/auth/userRoutes' );
 const keys = require( './config/keys' );
 
@@ -59,7 +60,8 @@ if ( process.env.NODE_ENV === 'production' ) {
 }
 
 // Configure routes
-app.use( '/api', apiRoutes );
+// app.use( '/api', apiRoutes );
+app.use( routes );
 app.use( userRoutes );
 
 // Start Server...
