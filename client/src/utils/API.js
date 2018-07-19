@@ -41,8 +41,11 @@ export default {
         return axios.get( '/api/inventory' );
     },
 
+
     deleteFoodItem: id => {
         console.log( id );
         return axios.delete( '/api/inventory/' + id );
     }
 }
+
+

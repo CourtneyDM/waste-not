@@ -7,7 +7,7 @@ module.exports = {
         db.Inventory
             .find( req.query )
             .sort( { date: -1 } )
-            .then( dbModel => res.json( dbModel ) )
+            .then( dbModel =>  res.json({"data":dbModel}))
             .catch( error => res.status( 422 ).json( error ) );
     },
 
@@ -29,5 +29,3 @@ module.exports = {
     }
 }
 
-
-///note note note 

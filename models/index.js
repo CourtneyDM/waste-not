@@ -1,4 +1,7 @@
 // Export Database Schemas to be used throughout project
 module.exports = {
-    Inventory: require( './inventory' )
+    Inventory: require( './inventory' ),
+    Food:  require('./food'),
+    Chat: require('./chat'),
+    Recipe: require('.recipe'),
 };

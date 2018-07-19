@@ -13,9 +13,16 @@ const inventorySchema = new Schema( {
     itemBrandName: {
         type: String,
     },
+    quantity: {
+        type: Number,
+    },
     bestByDate: {
         type: String,
         required: true
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
     }
 } );
 

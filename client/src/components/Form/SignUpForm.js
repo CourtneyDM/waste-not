@@ -1,81 +1,97 @@
 import React, { Component } from 'react';
 import { Input, Button } from '../Form';
+import axios from 'axios';
+import Login from '../../pages/Login';
 import './Form.css';
 
 export class SignUpForm extends Component {
-    constructor( props ) {
-        super( props );
+    constructor(props) {
+        super(props);
         this.state = {
-            fullName: '',
-            userName: '',
+            fullname: '',
+            username: '',
             email: '',
-            password: ''
-        }
-
-        this.handleClick = this.handleClick.bind( this );
-        this.handleInputChange = this.handleInputChange.bind( this );
-
+            password: '',
+            isRegisterd: false,
+            redirect: false
+        };
+        this.handleClick = this.handleClick.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
+
     componentDidMount() {
-        this.setState = {
-            fullName: this.state.fullName,
-            userName: this.state.userName,
-            email: this.state.email,
-            password: this.state.password
-        }
+        window.sessionStorage.clear();
     }
 
     handleClick = event => {
         event.preventDefault();
-        alert( 'Clicked' );
-        // TODO: create functionality to handle form submission
+        this.setState( {
+            fullname: this.state.fullname.toUpperCase().trim(),
+            username: this.state.email.trim(),
+            email: this.state.email.trim(),
+            password: this.state.password.trim()
+        } );
+        return axios( {
+            method: 'POST',
+            url: '/register',
+            data: {
+                fullname: this.state.fullname.toUpperCase().trim(),
+                username: this.state.email.trim(),
+                email: this.state.email.trim(),
+                password: this.state.password.trim()
+            }
+        } ).then( res => {
+            window.location.pathname = '/login'
+            this.setState( { isRegisterd: true } );
+        } ).catch( err => { throw err } );
     }
 
     handleInputChange = event => {
         event.preventDefault();
         const { name, value } = event.target;
-        this.setState( { [ name ]: value } );
+        this.setState( { [ name ]: value } )
 
     }
 
     render() {
         return (
-            <React.Fragment>
-                <h2>Sign Up Form</h2>
-                <div className='signup'>
-                    <div className='form-group'>
-                        <Input
-                            label='Name'
-                            id='fullName'
-                            type='text'
-                            className='form-control'
-                        />
-                        <Input
-                            label='Email'
-                            id='email'
-                            type='email'
-                            className='form-control'
-                        />
-                        <Input
-                            label='Username'
-                            id='userName'
-                            type='text'
-                            className='form-control'
-                        />
-                        <Input
-                            label='Password'
-                            id='password'
-                            type='password'
-                            className='form-control'
-                        />
-                        <Button
-                            onClick={ this.handleClick }
-                            text='Create Account'
-                            className='btn btn-success'
-                        />
+            // Check if user has registered
+            ( !this.state.isRegisterd ? (
+                < React.Fragment >
+                    <div className='signup'>
+                        <div className='form-group'>
+
+                            <Input
+                                label='Name'
+                                name='fullname'
+                                type='text'
+                                className='form-control'
+                                onChange={ this.handleInputChange }
+                            />
+                            <Input
+                                label='Email'
+                                name='email'
+                                type='email'
+                                className='form-control'
+                                onChange={ this.handleInputChange }
+                            />
+                            <Input
+                                label='Password'
+                                name='password'
+                                type='password'
+                                className='form-control'
+                                onChange={ this.handleInputChange }
+                            />
+                            <Button
+                                onClick={ this.handleClick }
+                                text='Create Account'
+                                className='btn btn-success'
+                            />
+                        </div>
                     </div>
-                </div>
-            </React.Fragment>
+                </React.Fragment > )
+                // If user completed registration, take them to login page
+                : <Login /> )
         );
     }
 }
