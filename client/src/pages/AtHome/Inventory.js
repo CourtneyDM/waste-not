@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Input, Button } from '../../components/Form';
 import API from '../../utils/API'
 import { CardDeck, CardBasic } from '../../components/Card';
@@ -92,8 +93,10 @@ class Inventory extends Component {
 
     // Save food item to database
     saveFoodInventory = ( foodData ) => {
-        API.saveFoodInventory( foodData ).
-            theni( res => { console.log( res ) } )
+        API.saveFoodInventory( foodData )
+            .then( res => { console.log( res ) } )
+
+
             .catch( error => { throw error } );
     }
 
@@ -198,6 +201,8 @@ class Inventory extends Component {
                         </div>
 
                         <h5 className='text-center sectionHeader'>Manage your Inventory</h5>
+                        <Link id='viewSaved' className='text-center' to="/Welcome">If you've logged in, click here to view your saved inventory items.</Link>
+
                         {/* SEARCH FOR FOOD SECTION */ }
                         <h5 className='text-center sectionHeader'>Add to your Inventory</h5>
 
@@ -264,10 +269,11 @@ class Inventory extends Component {
                                     </tbody>
                                 </table>
                             </div>
-                            <Button
+                            {/* <Button
                                 text='Get Recipe'
                                 onClick={ () => this.getRecipe( 'Shredded Chicken' ) }
-                            />
+                            /> */}
+
 
                         </React.Fragment>
 

@@ -20,7 +20,7 @@ class FoodWaste extends Component {
 
                             <h5 className='text-center' id='quote'>Getting food to our tables eats up 10% of the total U.S. energy budget, uses 50% of U.S. land <br /> and swallows 80% of freshwater consumed in the United States...and yet, 40% of it is wasted.</h5>
                             <h5 className='stats'>US Food Waste</h5>
-                            <img src='/assets/images/foodwasteimage.jpg' alt='Food Waste' width='375px' style={{ float: 'right' }} id="foodWasteStats" />
+                            <img src='/assets/images/foodwasteimage.jpg' alt='Food Waste' width='375px' style={ { float: 'right' } } id="foodWasteStats" />
                             <ul className='statList'>
                                 <li>Americans throw away over $165 BILLION of food each year.</li>
                                 <li>40% of food is wasted in America every year.</li>
