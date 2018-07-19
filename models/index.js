@@ -3,5 +3,5 @@ module.exports = {
     Inventory: require( './inventory' ),
     Food:  require('./food'),
     Chat: require('./chat'),
-    Recipe: require('.recipe'),
+    Recipe: require('./recipe'),
 };

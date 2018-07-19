@@ -6,19 +6,15 @@ const Schema = mongoose.Schema;
 
 // Define Inventory Schema
 const recipeSchema = new Schema( {
-    itemName: {
+    recipe: {
         type: String,
         required: true
     },
-    itemBrandName: {
+    food: {
         type: String,
     },
-    quantity: {
+    expiration: {
         type: Number,
-    },
-    bestByDate: {
-        type: String,
-        required: true
     },
     user: {
         type: Schema.Types.ObjectId,
