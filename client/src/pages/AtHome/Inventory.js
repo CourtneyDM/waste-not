@@ -95,6 +95,8 @@ class Inventory extends Component {
     saveFoodInventory = ( foodData ) => {
         API.saveFoodInventory( foodData )
             .then( res => { console.log( res ) } )
+
+
             .catch( error => { throw error } );
     }
 
@@ -271,6 +273,7 @@ class Inventory extends Component {
                                 text='Get Recipe'
                                 onClick={ () => this.getRecipe( 'Shredded Chicken' ) }
                             /> */}
+
 
                         </React.Fragment>
 
