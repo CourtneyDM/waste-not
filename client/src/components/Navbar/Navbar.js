@@ -19,6 +19,7 @@ const Navbar = () => (
                         What's the Problem?
         </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+
                         <Link className="dropdown-item" to="/Educate/FoodWaste">Food Waste</Link>
                         <Link className="dropdown-item" to="/Educate/Hunger">Hunger</Link>
                     </div>
@@ -30,6 +31,7 @@ const Navbar = () => (
                         Help at Home
         </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+
                         <Link className="dropdown-item" to="/AtHome/Inventory">Food Inventory</Link>
                         <Link className="dropdown-item" to="/AtHome/Recipes">Recipes</Link>
                     </div>
@@ -40,6 +42,7 @@ const Navbar = () => (
                         Get Involved
         </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+
                         <Link className="dropdown-item" to="/GetInvolved/Individual">Message Board</Link>
                         <Link className="dropdown-item" to="/GetInvolved/Resources">Resources</Link>
 

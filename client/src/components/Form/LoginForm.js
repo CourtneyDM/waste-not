@@ -58,6 +58,7 @@ export class LoginForm extends Component {
                 window.sessionStorage.setItem( "email", res.data.user.email );
                 window.sessionStorage.setItem( "sessionID", res.data.sessionID );
                 window.sessionStorage.setItem( "userID", res.data.user._id );
+                window.sessionStorage.setItem( "isLoggedIn", true );
                 this.setState( { isAuthenitcated: true } );
             }
         } ).catch( err => { throw err } );
@@ -72,6 +73,7 @@ export class LoginForm extends Component {
                 )
                 :
                 ( <React.Fragment>
+                    <h2>Account Login</h2>
                     <div className='signup'>
                         <div className='form-group'>
                             <Input

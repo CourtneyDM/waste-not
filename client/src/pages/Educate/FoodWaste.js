@@ -8,6 +8,7 @@ class FoodWaste extends Component {
             <div>
                 <CardDeck>
                     <CardBasic
+
                         header='Food Waste is a BIG problem'>
                         <div className='foodWasteContainer'>
 
