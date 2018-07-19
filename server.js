@@ -8,7 +8,7 @@ const passport = require( 'passport' );
 const mongoose = require( 'mongoose' );
 
 // Configure PORT
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 
 // Import Routes and Configurations
 const apiRoutes = require( './routes/api/' );
@@ -46,7 +46,7 @@ app.use( session( {
     },
     store: new FileStore(),
     secret: process.env.secret || keys.session.cookieKey,
-    resave: false,
+    resave: true,
     saveUninitialized: true
 } ) );
 
@@ -59,7 +59,7 @@ if ( process.env.NODE_ENV === 'production' ) {
 }
 
 // Configure routes
-app.use( '/api/', apiRoutes );
+app.use( '/api', apiRoutes );
 app.use( userRoutes );
 
 // Start Server...

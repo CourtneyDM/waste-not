@@ -3,5 +3,4 @@ module.exports = {
     foodController:  require('./foodController'),
     chatController: require('./chatController'), 
     recipeController: require('.recipeController'),
-
 };
