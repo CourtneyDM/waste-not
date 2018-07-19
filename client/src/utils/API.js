@@ -38,34 +38,14 @@ export default {
 
     getInventory: () => {
         console.log( 'getting inventory...' );
-        return axios.get( '/api/inventory');
+        return axios.get( '/api/inventory' );
     },
+
 
     deleteFoodItem: id => {
         console.log( id );
         return axios.delete( '/api/inventory/' + id );
-    },
-    
-    getFoodInventory: query => {
-        console.log( 'API.js getting food: ', query );
-        return axios.get( `/api/food`, {
-            params: {
-              item: query
-            }
-            })
-        },
-    
-    saveFoodInventory: foodData => {
-        console.log( 'saving to new database...' );
-        return axios.post( '/api/food', foodData );
-    },
-
-    getChat: () => {
-        console.log( 'getting chat...' );
-        return axios.get( '/api/chat');
-    },
-    saveChat: message => {
-        console.log( 'saving to chat database...' );
-        return axios.post( '/api/chat', message );
-    },
+    }
 }
+
+
